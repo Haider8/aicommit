@@ -1,0 +1,22 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  PACKAGE_NAME: aicommit
+
+tasks:
+  build:
+    desc: Build the app
+    cmds:
+    - GOFLAGS=-mod=mod go build -o bin/{{.PACKAGE_NAME}} main.go
+
+  run: 
+    desc: Run the app
+    cmds:
+    - GOFLAGS=-mod=mod go run main.go
+
+  clean:
+    desc: Remove all retrieved *.png files
+    cmds:
+    - rm -rf bin
